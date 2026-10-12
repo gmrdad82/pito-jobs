@@ -1,0 +1,9 @@
+tmp/
+target/
+node_modules/
+.claude/
+/.dev/
+/AGENTS.md
+/CLAUDE.md
+/pito-app.toml
+/prompts
