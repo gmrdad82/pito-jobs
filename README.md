@@ -6,7 +6,7 @@
 
 pito-jobs is a small Rust crate that lets a command-line tool or an app say
 what it is doing, so another program can show it live. It is part of
-[PITO](https://pitomd.com), where every tool writes through it and a
+[PITO MD](https://pitomd.com), where every tool writes through it and a
 monitor reads it back.
 
 It has three forms, all JSON and all best-effort: a write error never fails,
@@ -180,5 +180,5 @@ and report security issues privately as [SECURITY.md](SECURITY.md) says.
 ## Licence
 
 MIT, © Catalin Ilinca: see [LICENSE](LICENSE). The licence covers the code
-only: the PITO name, every app and game name and their logos are © Catalin
-Ilinca, all rights reserved ([TRADEMARKS.md](TRADEMARKS.md)).
+only: the PITO and PITO MD names, every app and game name and their logos
+are © Catalin Ilinca, all rights reserved ([TRADEMARKS.md](TRADEMARKS.md)).

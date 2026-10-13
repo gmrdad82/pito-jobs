@@ -78,7 +78,7 @@ then rename), at most once a second, and stays under 4 KiB, with `label` and
   (seconds each) stays steady, and idle stretches don't spike it. A tool may
   override it. It's absent when meaningless, like a single still.
 - `pgpu`: optional, for a tool whose GPU work runs under a GPU queue
-  (PITO's is pgpu; the field keeps that name). `pgpu.pid` is the pid of the
+  (PITO MD's is pgpu; the field keeps that name). `pgpu.pid` is the pid of the
   queue's process running the tool's current GPU step, and `as` the tool's
   name there; `pgpu` is null while no such process exists, such as during a
   build stage. A tool sets and clears it at any time. A running job with no
@@ -163,7 +163,7 @@ rewritten atomically at most once a second:
   detached daemon that never calls `frame`; it reports only that it's
   alive, so a monitor can add its usage to its app's row.
 - `ride`: true when `RIDE_APP` is set and not empty, and `ride_set` carries
-  `RIDE_SET`. A test or fixture runner (PITO's is prun) sets them before it
+  `RIDE_SET`. A test or fixture runner (PITO MD's is prun) sets them before it
   drives the app, and children inherit them, so a reader can tell a test
   run from real use.
 - `fps`: frames drawn over the last second. An app that draws only on
@@ -243,7 +243,7 @@ A job record (§1) is a job's state, rewritten in place for whoever looks. A
 progress line is the event form of the same thing, streamed to the one
 caller that started the op and reads its stdout as it goes: an installer's
 `install` or `update`, a `deploy`, a `release`, run with `--progress json`
-and read by a TUI's activity band or a script. pci, PITO's installer, is
+and read by a TUI's activity band or a script. pci, PITO MD's installer, is
 one producer.
 
 With `--progress json`, stdout is one JSON object per line, UTF-8, ended by
