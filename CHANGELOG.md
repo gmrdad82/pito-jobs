@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.0.0 — 2026-10-14
+
+### Added
+
+- Three new examples: `heartbeat` and `lines` show an app's heartbeat and an op's progress lines read back live, and `bench` measures what each call costs.
+
+### Changed
+
+- Version 1.0.0, with the same API and the same file formats as 0.5.0: nothing to change when you move to it.
+- The README shows each feature with its own clip and leads with measured numbers: 26.5 ns to record a frame, 292 ns a progress call.
+- The brand reads PITO MD in the README, the notices and the format spec.
+
 ## v0.5.0 — 2026-10-12
 
 ### Added

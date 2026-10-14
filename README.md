@@ -27,13 +27,13 @@ The numbers are measured in [Speed and size](#speed-and-size), with how.
 The same line on Linux, macOS and WSL:
 
 ```sh
-cargo add pito-jobs --git https://github.com/gmrdad82/pito-jobs --tag v0.5.0
+cargo add pito-jobs --git https://github.com/gmrdad82/pito-jobs --tag v1.0.0
 ```
 
 or in your `Cargo.toml`:
 
 ```toml
-pito-jobs = { git = "https://github.com/gmrdad82/pito-jobs", tag = "v0.5.0" }
+pito-jobs = { git = "https://github.com/gmrdad82/pito-jobs", tag = "v1.0.0" }
 ```
 
 It needs Rust 1.91 or newer. Works on Linux and macOS (Windows through WSL),
