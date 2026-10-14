@@ -240,7 +240,8 @@ recorded by prec and made by pconv.
 
 ```sh
 bin/gate --fast   # rustfmt, clippy with -D warnings, the tests, a wasm32-wasip2 check
-bin/gate          # adds the doc tests, Windows and macOS checks and the examples' release build
+bin/gate          # adds the doc tests, Windows and macOS checks, the examples' release build and the docs bundle
+bin/docs-bundle   # the docs pages, the API reference and the changelog in tmp/docs-vX.Y.Z.tar.gz
 ```
 
 The tests use [cargo-nextest](https://nexte.st). The gate needs the

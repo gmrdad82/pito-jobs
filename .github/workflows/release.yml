@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  CARGO_INCREMENTAL: "0"
+  CARGO_TERM_COLOR: always
+
+jobs:
+  docs:
+    name: docs bundle
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ github.ref_name }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: dtolnay/rust-toolchain@89b12181fb390509a0842a86cc55eeb8eb928c1d
+        with:
+          toolchain: 1.97.1
+      - run: bin/docs-bundle "$TAG" tmp
+      - name: release notes from CHANGELOG.md
+        run: |
+          awk -v head="## $TAG " 'index($0, "## ") == 1 { if (found) exit; found = index($0, head) == 1; next } found' CHANGELOG.md > tmp/notes.md
+          test -s tmp/notes.md
+      - name: attach the bundle to the release
+        run: |
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || gh release create "$TAG" --verify-tag --title "pito-jobs $TAG" --notes-file tmp/notes.md \
+            || gh release view "$TAG" >/dev/null
+          gh release upload "$TAG" "tmp/docs-$TAG.tar.gz" --clobber

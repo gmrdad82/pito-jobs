@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+version="${1:-v$(sed -n 's/^version = "\(.*\)"$/\1/p' Cargo.toml | head -n 1)}"
+version="v${version#v}"
+out="${2:-tmp}"
+root="tmp/docs-bundle"
+site="$root/docs"
+
+rm -rf "$root"
+mkdir -p "$site/reference" "$site/images" "$out"
+
+page() {
+    local title="$1" description="$2" order="$3"
+    printf -- '---\ntitle: %s\ndescription: %s\nsidebar:\n  order: %s\n---\n\n' "$title" "$description" "$order"
+}
+
+body() {
+    awk 'NR == 1 && /^# / { skip = 1; next } skip && /^$/ { skip = 0; next } { skip = 0; print }' "$1"
+}
+
+for source in $(cd docs/site && find . -name '*.md' | sort); do
+    mkdir -p "$site/$(dirname "$source")"
+    sed "s/{{version}}/$version/g" "docs/site/$source" > "$site/$source"
+done
+
+{
+    page "Formats" "The job record, the app heartbeat and the progress lines, field by field: the full spec." 1
+    body docs/formats.md
+} > "$site/reference/formats.md"
+
+{
+    page "Changelog" "What changed in each pito-jobs release." 99
+    body CHANGELOG.md
+} > "$site/changelog.md"
+
+for image in $(grep -rhoE 'images/[A-Za-z0-9._-]+' "$site" | sed 's#images/##' | sort -u); do
+    grep -q "docs/images/$image" NOTICE || { echo "docs-bundle: docs/images/$image is not named in NOTICE" >&2; exit 1; }
+    cp "docs/images/$image" "$site/images/$image"
+done
+
+rm -rf target/doc
+cargo doc -q --no-deps --lib --locked
+cp -R target/doc "$site/api"
+printf '<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=pito_jobs/index.html"><a href="pito_jobs/index.html">pito_jobs</a>\n' > "$site/api/index.html"
+
+if grep -rlE '\{\{version\}\}|/home/|/Users/' "$site" >&2; then
+    echo "docs-bundle: a page carries a placeholder or a local path" >&2
+    exit 1
+fi
+
+tar -czf "$out/docs-$version.tar.gz" -C "$root" docs
+echo "$out/docs-$version.tar.gz"
