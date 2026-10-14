@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.1 — 2026-10-14
+
+### Added
+
+- Every release carries a docs bundle, docs-vX.Y.Z.tar.gz: the install page, seven how-to guides, the format spec, the API reference and the changelog.
+
 ## v1.0.0 — 2026-10-14
 
 ### Added

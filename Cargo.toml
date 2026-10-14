@@ -1,6 +1,6 @@
 [package]
 name = "pito-jobs"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 rust-version = "1.91"
 description = "Live job records, app heartbeats and progress lines for command-line tools and apps, written best-effort and read back by monitors"
