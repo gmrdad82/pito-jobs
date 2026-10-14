@@ -260,6 +260,8 @@ and report security issues privately as [SECURITY.md](SECURITY.md) says.
 
 ## Licence
 
+<img src="assets/marks/pitomd-wordmark.svg" width="320" alt="PITO MD">
+
 MIT, © Catalin Ilinca: see [LICENSE](LICENSE). The licence covers the code
 only: the PITO and PITO MD names, every app and game name and their logos
 are © Catalin Ilinca, all rights reserved ([TRADEMARKS.md](TRADEMARKS.md)).

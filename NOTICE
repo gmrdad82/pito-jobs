@@ -17,5 +17,9 @@ the numbers one run of examples/bench.rs printed, under the MIT licence like
 the code:
 - docs/images/cost-bars.png: the cost per call
 
+The PITO MD wordmark in assets/marks/pitomd-wordmark.svg, shown in the
+README's Licence section, is copied by bin/marks from the PITO MD brand
+masters at aa3aee8b232a1b848995bf3d9a012a01d4aff8ec (assets/marks/SOURCE).
+
 The pito-jobs, PITO and PITO MD names and their logos are © Catalin Ilinca, all
 rights reserved and not covered by the MIT licence (TRADEMARKS.md).
