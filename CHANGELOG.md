@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.0.2 — 2026-10-14
+
+### Fixed
+
+- The docs bundle quotes every page's title, description and sidebar label, so a value holding `: ` no longer breaks the docs site.
+
 ## v1.0.1 — 2026-10-14
 
 ### Added
