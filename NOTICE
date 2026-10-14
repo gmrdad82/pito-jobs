@@ -4,10 +4,18 @@ Copyright (c) 2026 Cătălin Ilinca
 The code is under the MIT licence in LICENSE. These are the files in this
 repository that are not code, where each comes from, and what covers it.
 
-A terminal clip recorded by prec from this repository's own shot
-(render/terminal.toml and render/terminal/demo.tape, running
-examples/demo.rs), made a GIF by pconv, under the MIT licence like the code:
-- docs/images/demo.gif: the demo shot
+Terminal clips recorded by prec from this repository's own shots
+(render/terminal.toml and the tapes in render/terminal/, running the
+examples in examples/), made GIFs by pconv, under the MIT licence like the
+code:
+- docs/images/demo.gif: the demo shot, examples/demo.rs
+- docs/images/heartbeat.gif: the heartbeat shot, examples/heartbeat.rs
+- docs/images/lines.gif: the lines shot, examples/lines.rs
+
+A chart drawn by pito-compare (pcmp) from docs/charts/cost.toml, which holds
+the numbers one run of examples/bench.rs printed, under the MIT licence like
+the code:
+- docs/images/cost-bars.png: the cost per call
 
 The pito-jobs, PITO and PITO MD names and their logos are © Catalin Ilinca, all
 rights reserved and not covered by the MIT licence (TRADEMARKS.md).

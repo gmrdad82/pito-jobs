@@ -1,0 +1,16 @@
+title = "COST PER CALL IN THE TOOL"
+unit = "NANOSECONDS"
+better = "lower"
+subtitle = "RYZEN 9 9950X, LINUX, RUST 1.97.1, EXAMPLES/BENCH.RS"
+date = "2026-10-14"
+suffix = " NS"
+parties = [{ name = "PITO-JOBS" }]
+
+[[groups]]
+name = "WHAT A TOOL PAYS PER CALL"
+rows = [
+  { label = "HANDLE::FRAME", values = [26.5] },
+  { label = "JOB::PROGRESS, PITO_JOBS=OFF", values = [176.0] },
+  { label = "WRITER::EVENT, ONE LINE", values = [231.7] },
+  { label = "JOB::PROGRESS", values = [292.2] },
+]

@@ -9,4 +9,4 @@ cargo check -q --target wasm32-wasip2
 cargo test --all-features --doc
 cargo check -q --target x86_64-pc-windows-gnu
 cargo check -q --target aarch64-apple-darwin
-cargo build -q --release --locked --example demo
+cargo build -q --release --locked --examples
