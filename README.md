@@ -228,13 +228,13 @@ machine, and 1.1 s for the crate alone once its dependencies are built.
 
 pito-jobs is one of the building blocks of [PITO MD](https://pitomd.com).
 The renderer [pfx](https://github.com/gmrdad82/pfx), the scene builder
-[Manfred](https://github.com/gmrdad82/manfred), the terminal recorder
-[prec](https://github.com/gmrdad82/prec) and the converter
-[pconv](https://github.com/gmrdad82/pconv) write their jobs through it, and a
+[Manfred](https://github.com/gmrdad82/manfred) and the terminal recorder
+[prec](https://github.com/gmrdad82/prec) write their jobs through it, and a
 job run under [pgpu](https://github.com/gmrdad82/pgpu) records the queue's
 pid. The chart above is drawn by
 [pito-compare](https://github.com/gmrdad82/pito-compare) and the GIFs are
-recorded by prec and made by pconv.
+recorded by prec and made by pcod, from
+[pito-codecs](https://github.com/gmrdad82/pito-codecs).
 
 ## Build and test
 

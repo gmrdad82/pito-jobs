@@ -657,7 +657,7 @@ fn a_missing_directory_or_a_blocked_path_does_not_panic() {
 fn stages_are_written_and_round_trip() {
     let dir = scratch("stages");
     let (clock, _) = manual(70);
-    let job = start_with("pconv", Some("convert"), "clip", settings(&dir), clock);
+    let job = start_with("pcod", Some("convert"), "clip", settings(&dir), clock);
     job.stage("probe", None, "files");
     let early = std::fs::read_to_string(&json_files(&dir)[0]).unwrap();
     assert!(!early.contains("stages"), "{early}");
@@ -688,7 +688,7 @@ fn stages_are_written_and_round_trip() {
 fn stages_are_a_no_op_after_finish() {
     let dir = scratch("stages-finished");
     let (clock, _) = manual(80);
-    let job = start_with("pconv", Some("convert"), "clip", settings(&dir), clock);
+    let job = start_with("pcod", Some("convert"), "clip", settings(&dir), clock);
     job.stages(&["probe", "encode"]);
     job.finish(0);
     job.stages(&["probe", "encode", "mux"]);
@@ -699,7 +699,7 @@ fn stages_are_a_no_op_after_finish() {
 fn oversized_stages_are_dropped_to_keep_the_file_small() {
     let dir = scratch("stages-big");
     let (clock, _) = manual(90);
-    let job = start_with("pconv", Some("convert"), "clip", settings(&dir), clock);
+    let job = start_with("pcod", Some("convert"), "clip", settings(&dir), clock);
     let long = "x".repeat(2_000);
     job.stages(&[&long, &long, &long]);
     let len = std::fs::metadata(&json_files(&dir)[0]).unwrap().len();
